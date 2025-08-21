@@ -19,18 +19,20 @@ A **Spring Boot-based CRUD application** to manage employees and departments. It
 
 ## 📂 Project Structure  
 EmployeeDeptManagement
-┣ 📂 src
-┃ ┣ 📂 main
-┃ ┃ ┣ 📂 java/com/example/demo
-┃ ┃ ┃ ┣ 📂 controller # REST Controllers
-┃ ┃ ┃ ┣ 📂 service # Service Layer
-┃ ┃ ┃ ┣ 📂 repository # JPA Repositories
-┃ ┃ ┃ ┗ 📂 entity # Entities (Employee, Department)
-┃ ┃ ┣ 📂 resources
-┃ ┃ ┃ ┣ application.properties # DB Config
-┃ ┃ ┃ ┗ data.sql # Sample Data (if any)
-┗ 📜 pom.xml
 
+   ```bash
+   ┣ 📂 src
+   ┃ ┣ 📂 main
+   ┃ ┃ ┣ 📂 java/com/example/demo
+   ┃ ┃ ┃ ┣ 📂 controller # REST Controllers
+   ┃ ┃ ┃ ┣ 📂 service # Service Layer
+   ┃ ┃ ┃ ┣ 📂 repository # JPA Repositories
+   ┃ ┃ ┃ ┗ 📂 entity # Entities (Employee, Department)
+   ┃ ┃ ┣ 📂 resources
+   ┃ ┃ ┃ ┣ application.properties # DB Config
+   ┃ ┃ ┃ ┗ data.sql # Sample Data (if any)
+   ┗ 📜 pom.xml
+   ```
 
 ## ⚙️ Installation & Setup  
 
@@ -42,35 +44,37 @@ EmployeeDeptManagement
    
 2. Configure PostgreSQL in application.properties
 
-spring.datasource.url=jdbc:postgresql://localhost:5432/employeedb
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
+   ```bash
+   spring.datasource.url=jdbc:postgresql://localhost:5432/employeedb
+   spring.datasource.username=your_username
+   spring.datasource.password=your_password
+   spring.jpa.hibernate.ddl-auto=update
 
 3. Build and run the application
 
-mvn spring-boot:run
+   ```bash
+   mvn spring-boot:run
 
 4. Access Swagger UI for API testing
 
-http://localhost:8080/swagger-ui/index.html
+   ```bash
+   http://localhost:8080/swagger-ui/index.html
 
 ## 📌 API Endpoints (Examples)
 **Employee APIs**
 
-POST /employees → Add new employee
-
-GET /employees → Get all employees
-GET /employees/{id} → Get employee by ID
-PUT /employees/{id} → Update employee details
+POST /employees → Add new employee  
+GET /employees → Get all employees  
+GET /employees/{id} → Get employee by ID  
+PUT /employees/{id} → Update employee details  
 DELETE /employees/{id} → Delete employee
 
 **Department APIs**
 
-POST /departments → Add new department
-GET /departments → Get all departments
-PUT /departments/{id} → Update department
-DELETE /departments/{id} → Delete department
+POST /departments → Add new department  
+GET /departments → Get all departments  
+PUT /departments/{id} → Update department  
+DELETE /departments/{id} → Delete department  
 
 ## ✅ Results / Outcomes
 
