@@ -123,32 +123,6 @@ public class DeptService {
 		}
 	}
 	
-//	public ResponseEntity<ResponseStructure<Dept>> updateById(int id, Dept d) {
-//		Dept dept = ddao.findById(id);
-//		boolean flag = djpa.existsByName(dept.getName());
-//		ResponseStructure<Dept> res = new ResponseStructure<>();
-//		if(flag) {
-//			res.setData(null);
-//			res.setDate(LocalDateTime.now());
-//			res.setMessage("Department name " + d.getName() + " already exists");
-//			res.setStatusCode(HttpStatus.BAD_GATEWAY.value());
-//			return new ResponseEntity<ResponseStructure<Dept>>(res, HttpStatus.BAD_GATEWAY);
-//		} else {
-//			if(d.getName()!=null && !d.getName().isBlank()) {
-//				dept.setName(d.getName());
-//			}
-//			if(d.getLoc()!=null && !d.getLoc().isBlank()) {
-//				dept.setLoc(d.getLoc());
-//			}
-//			Dept update = ddao.updateById(dept);
-//			res.setData(update);
-//			res.setDate(LocalDateTime.now());
-//			res.setMessage("Record successfully updated");
-//			res.setStatusCode(HttpStatus.OK.value());
-//			return new ResponseEntity<ResponseStructure<Dept>>(res, HttpStatus.OK);
-//		}
-//	}
-	
 	public ResponseEntity<ResponseStructure<Dept>> updateById(int id, Dept d) {
 	    ResponseStructure<Dept> res = new ResponseStructure<>();
 
