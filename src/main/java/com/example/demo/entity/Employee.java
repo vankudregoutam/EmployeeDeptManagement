@@ -15,8 +15,6 @@ public class Employee {
 	private Double sal;
 	private Double com;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "deptno")
 	private Integer deptno;
 
 	public int getId() {
