@@ -112,18 +112,18 @@ You can configure the base URL in src/services/api.js.
 ## 📌 API Endpoints
 **👨‍💼 Employee APIs**
 
-POST /employees → Add new employee
-GET /employees → Get all employees
-GET /employees/{id} → Get employee by ID
-PUT /employees/{id} → Update employee
-DELETE /employees/{id} → Delete employee
+POST /employees → Add new employee  
+GET /employees → Get all employees  
+GET /employees/{id} → Get employee by ID  
+PUT /employees/{id} → Update employee  
+DELETE /employees/{id} → Delete employee  
 
 **🏢 Department APIs**
 
-POST /departments → Add new department
-GET /departments → Get all departments
-PUT /departments/{id} → Update department
-DELETE /departments/{id} → Delete department
+POST /departments → Add new department  
+GET /departments → Get all departments  
+PUT /departments/{id} → Update department  
+DELETE /departments/{id} → Delete department  
 
 ---
 
