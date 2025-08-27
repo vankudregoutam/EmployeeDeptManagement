@@ -1,0 +1,60 @@
+
+.form {
+    height: fit-content;
+    width: 600px;
+    padding: 0 0 50px 0;
+    margin: -3%;
+    margin-left: 15%;
+    border: solid;
+    border-radius: 50px;
+}
+
+.form input {
+    display: block;
+    margin-left: 40px;
+    margin-top: 50px;
+    height: 40px;
+    width: 480px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 15px;
+}
+
+.form select {
+    display: block;
+    margin-left: 40px;
+    margin-top: 50px;
+    height: 40px;
+    width: 480px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 15px;
+}
+
+.form .update {
+    display: block;
+    margin-left: 40px;
+    margin-top: 50px;
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 15px;
+    background-color: lightgreen;
+    border: solid lightgreen;
+    cursor: pointer;
+}
+
+.form .cancel {
+    display: block;
+    margin-left: 280px;
+    margin-top: -40px;
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 15px;
+    background-color: lightcoral;
+    border: solid lightcoral;
+    cursor: pointer;
+}

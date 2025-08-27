@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.Dept;
-import com.example.demo.entity.Employee;
 import com.example.demo.jparepo.DeptJPA;
-import com.example.demo.jparepo.EmpJPA;
 
 @Repository
 public class DeptDAO {
@@ -17,15 +15,7 @@ public class DeptDAO {
 	@Autowired
 	private DeptJPA djpa;
 	
-	@Autowired
-	private EmpJPA ejpa;
-	
-	public Dept saveDept(int id, Dept d) {
-		Optional<Employee> option = ejpa.findById(id);
-		if(option.isPresent()) {
-			Employee e = option.get();
-			e.setDept(d);
-		}
+	public Dept saveDept(Dept d) {
 		return djpa.save(d);
 	}
 	

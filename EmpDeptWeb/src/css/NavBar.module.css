@@ -1,0 +1,44 @@
+
+.heading {
+    text-align: center;
+    background-color: rgb(200, 200, 200);
+    padding: 10px;
+    margin: 0;
+}
+
+.parent {
+    width: 100%;
+    height: fit-content;
+    margin-top: 5%;
+    display: flex;
+}
+
+.parent .leftSide {
+    width: 30%;
+    height: fit-content;
+    background-color: rgb(240, 240, 240);
+    border-right: solid;
+    border-color: grey;
+    margin-left: 8%;
+}
+
+.leftSide .menu li {
+    list-style: none;
+    font-size: 22px;
+    margin: 10%;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black;
+}
+
+.parent .rightSide {
+    width: 70%;
+    height: 87vh;
+}
+
+hr {
+    border: 1px solid grey;
+    width: 80%;
+}

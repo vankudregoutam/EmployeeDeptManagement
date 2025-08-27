@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,13 +46,14 @@ public class EmpService {
 	
 	public ResponseEntity<FetchAllStructure<Employee>> fetchAll() {
 		List<Employee> li = edao.fetchAll();
+		li.sort(Comparator.comparingInt(Employee::getId));
 		FetchAllStructure<Employee> res = new FetchAllStructure<>();
-		if(li!=null) {
+		if(!(li.isEmpty())) {
 			res.setData(li);
 			res.setDate(LocalDateTime.now());
 			res.setMessage("Data fetched successfully");
-			res.setStatusCode(HttpStatus.FOUND.value());
-			ResponseEntity<FetchAllStructure<Employee>> re = new ResponseEntity<FetchAllStructure<Employee>>(res, HttpStatus.FOUND);
+			res.setStatusCode(HttpStatus.OK.value());
+			ResponseEntity<FetchAllStructure<Employee>> re = new ResponseEntity<FetchAllStructure<Employee>>(res, HttpStatus.OK);
 			return re;
 		} else {
 			res.setData(null);
@@ -59,6 +61,26 @@ public class EmpService {
 			res.setMessage("Data not found");
 			res.setStatusCode(HttpStatus.NOT_FOUND.value());
 			ResponseEntity<FetchAllStructure<Employee>> re = new ResponseEntity<FetchAllStructure<Employee>>(res, HttpStatus.NOT_FOUND);
+			return re;
+		}
+	}
+	
+	public ResponseEntity<ResponseStructure<Employee>> findById(int id) {
+		Employee e = edao.findById(id);
+		ResponseStructure<Employee> res = new ResponseStructure<>();
+		if(e!=null) {
+			res.setData(e);
+			res.setDate(LocalDateTime.now());
+			res.setMessage("Data Fetched Successfully");
+			res.setStatusCode(HttpStatus.OK.value());
+			ResponseEntity<ResponseStructure<Employee>> re = new ResponseEntity<ResponseStructure<Employee>>(res, HttpStatus.OK);
+			return re;
+		} else {
+			res.setData(null);
+			res.setDate(LocalDateTime.now());
+			res.setMessage("Data Not Found");
+			res.setStatusCode(HttpStatus.NOT_FOUND.value());
+			ResponseEntity<ResponseStructure<Employee>> re = new ResponseEntity<ResponseStructure<Employee>>(res, HttpStatus.NOT_FOUND);
 			return re;
 		}
 	}

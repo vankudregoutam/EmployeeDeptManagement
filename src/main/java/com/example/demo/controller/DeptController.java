@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,14 +19,15 @@ import com.example.demo.services.DeptService;
 
 @RequestMapping("/dept")
 @RestController
+@CrossOrigin(origins = "http://localhost:5173/")
 public class DeptController {
 	
 	@Autowired
 	private DeptService dservice;
 	
-	@PostMapping("/save/{id}")
-	public ResponseEntity<ResponseStructure<Dept>> saveDept(@PathVariable int id ,@RequestBody Dept d) {
-		return dservice.saveDept(id, d);
+	@PostMapping("/save")
+	public ResponseEntity<ResponseStructure<Dept>> saveDept(@RequestBody Dept d) {
+		return dservice.saveDept(d);
 	}
 	
 	@GetMapping("/fetchAll")
@@ -33,13 +35,18 @@ public class DeptController {
 		return dservice.fetchAll();
 	}
 	
+	@GetMapping("/findById/{id}")
+	public ResponseEntity<ResponseStructure<Dept>> findById(@PathVariable int id) {
+		return dservice.findById(id);
+	}
+	
 	@DeleteMapping("/deleteById/{id}")
 	public ResponseEntity<ResponseStructure<Dept>> deleteById(@PathVariable int id) {
 		return dservice.deleteById(id);
 	}
 	
-	@PutMapping("/updateById")
-	public ResponseEntity<ResponseStructure<Dept>> updateById(int id, @RequestBody Dept d) {
+	@PutMapping("/updateById/{id}")
+	public ResponseEntity<ResponseStructure<Dept>> updateById(@PathVariable int id, @RequestBody Dept d) {
 		return dservice.updateById(id, d);
 	}
 

@@ -36,7 +36,7 @@ public class EmpDAO {
 	}
 	
 	public List<Employee> findByDeptNo(int id) {
-		return ejpa.findByDept_depno(id);
+		return ejpa.findByDeptno(id);
 	}
 	
 	public Employee findById(int id) {
@@ -56,8 +56,8 @@ public class EmpDAO {
 			if(emp.getSal()!=null) {
 				e.setSal(emp.getSal());
 			}
-			if(emp.getDept()!=null) {
-				e.setDept(emp.getDept());
+			if(emp.getDeptno()!=null) {
+				e.setDeptno(emp.getDeptno());
 			}
 		}
 		return ejpa.save(e);

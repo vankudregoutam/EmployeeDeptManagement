@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Employee {
@@ -17,9 +15,9 @@ public class Employee {
 	private Double sal;
 	private Double com;
 	
-	@ManyToOne
-	@JoinColumn(name = "deptno")
-	private Dept dept;
+//	@ManyToOne
+//	@JoinColumn(name = "deptno")
+	private Integer deptno;
 
 	public int getId() {
 		return id;
@@ -53,12 +51,12 @@ public class Employee {
 		this.com = com;
 	}
 
-	public Dept getDept() {
-		return dept;
+	public Integer getDeptno() {
+		return deptno;
 	}
 
-	public void setDept(Dept dept) {
-		this.dept = dept;
+	public void setDeptno(Integer deptno) {
+		this.deptno = deptno;
 	}
 	
 }
