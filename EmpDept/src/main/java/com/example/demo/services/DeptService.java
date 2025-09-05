@@ -187,5 +187,4 @@ public class DeptService {
 	    return new ResponseEntity<>(res, HttpStatus.OK);
 	}
 
-
 }
