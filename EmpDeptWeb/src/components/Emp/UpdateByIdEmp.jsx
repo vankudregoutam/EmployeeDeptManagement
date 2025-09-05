@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../../css/form.module.css'
+import styles from '../../css/Form.module.css'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const UpdateByIdEmp = () => {
 
-  let [credentials, setCredentials] = useState({id: "",name: "", sal: "", com: "", dept: ''})
+  let [credentials, setCredentials] = useState({id: "", name: "", sal: "", com: "", dept: ''})
   let navigate = useNavigate();
   let { id } = useParams();
   let [departments, setDepartments] = useState([])
