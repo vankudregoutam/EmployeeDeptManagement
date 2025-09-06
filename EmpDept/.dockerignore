@@ -1,0 +1,12 @@
+Dockerfile
+.dockerignore
+node_modules
+.git
+.gitignore
+README.md
+.mvn
+mvnw
+mvnw.cmd
+HELP.md
+target/*.jar
+!target/*-exec.jar

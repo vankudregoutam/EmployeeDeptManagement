@@ -19,7 +19,7 @@ import com.example.demo.services.DeptService;
 
 @RequestMapping("/dept")
 @RestController
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = "https://employee-dept-management.vercel.app/")
 public class DeptController {
 	
 	@Autowired
