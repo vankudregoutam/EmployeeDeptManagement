@@ -1,13 +1,13 @@
 # Stage 1: Build the JAR file using Maven
-FROM maven:3.8.6-openjdk-17 AS builder
+FROM eclipse-temurin:17-jdk-alpine AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-# Build the application and create the JAR file
+# Build the application and create the JAR file (skip tests for faster build)
 RUN mvn clean package -DskipTests
 
 # Stage 2: Create the final image to run the JAR
-FROM openjdk:17-jdk-alpine
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 # Copy the JAR from the builder stage
 COPY --from=builder /app/target/*.jar app.jar
