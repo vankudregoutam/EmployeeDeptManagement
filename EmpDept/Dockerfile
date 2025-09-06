@@ -30,4 +30,4 @@ COPY src ./src
 # Build and run in one step
 RUN mvn clean package -DskipTests
 EXPOSE $PORT
-CMD ["java", "-jar", "target/*.jar", "--server.port=$PORT"]
+CMD ["java", "-jar", "/app/app.jar", "--server.port=$PORT"]
