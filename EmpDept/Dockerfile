@@ -32,23 +32,47 @@
 # EXPOSE $PORT
 # CMD ["java", "-jar", "/app/app.jar", "--server.port=$PORT"]
 
-# Single stage build
+# # Single stage build
+# FROM eclipse-temurin:17-jdk-alpine
+# WORKDIR /app
+
+# # Install Maven manually
+# RUN apk add --no-cache maven
+
+# # Copy source code
+# COPY pom.xml .
+# COPY src ./src
+
+# # Build the application
+# RUN mvn clean package -DskipTests
+
+# # The JAR is created in target/ directory, so we need to reference it there
+# EXPOSE $PORT
+
+# # FIXED: Run the JAR from the correct location in target/ directory
+# # Using find command to locate the exact JAR filename
+# CMD ["sh", "-c", "java -jar target/*.jar --server.port=$PORT"]
+
+# Single stage build - optimized for Render
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
-# Install Maven manually
+# Install Maven
 RUN apk add --no-cache maven
 
-# Copy source code
+# Copy only what's needed for building
 COPY pom.xml .
 COPY src ./src
 
 # Build the application
 RUN mvn clean package -DskipTests
 
-# The JAR is created in target/ directory, so we need to reference it there
+# Create a simple start script that handles the PORT variable
+RUN echo '#!/bin/sh' > start.sh && \
+    echo 'java -jar target/*.jar --server.port=$PORT' >> start.sh && \
+    chmod +x start.sh
+
 EXPOSE $PORT
 
-# FIXED: Run the JAR from the correct location in target/ directory
-# Using find command to locate the exact JAR filename
-CMD ["sh", "-c", "java -jar target/*.jar --server.port=$PORT"]
+# Use the script as entrypoint
+CMD ["./start.sh"]
